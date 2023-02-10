@@ -1,0 +1,47 @@
+server:
+  port: 8005
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/video_web?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  rabbitmq:
+    host: 47.115.203.139
+    port: 5672
+    username: admin
+    password: admin
+  redis:
+    host: 47.115.203.139
+    port: 6660
+    database: 0 #数据库索引
+    timeout: 180000 #连接超时时间
+    lettuce:
+      pool:
+        max-active: 8 #最大连接数
+        max-wait: -1 #最大阻塞等待时间，-1表示没有限制
+        max-idle: 5 #最大空闲连接
+        min-idle: 0 #最小空闲连接
+    password: fuck_getOut^^123
+socketio:
+  host: 127.0.0.1
+  port: 7000
+aliyun:
+  vod:
+    accessKeyId: LTAI5tR7p4NZYvMdxnp3KMM5
+    accessKeySecret: jcCSHV5wr1ZIe4a8KtEIlqVUE228jB
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: guli-edu-teacher1001
+
+#mybatis日志打印
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/lrr/video/mapper/xml/*.xml #注意换成实际的路径
